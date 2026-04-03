@@ -136,7 +136,7 @@
       <choose>
         <if variable="language">
           <names variable="author" suffix=" ">
-            <name name-as-sort-order="all" sort-separator=" " initialize-with="." delimiter=", " et-al-min="4" et-al-use-first="3" delimiter-precedes-et-al="never"></name>
+            <name name-as-sort-order="all" sort-separator=" " initialize-with=". " delimiter=", " et-al-min="4" et-al-use-first="3" delimiter-precedes-et-al="never"></name>
             <et-al term="and"></et-al> 
             <substitute>
               <names variable="editor"></names>
@@ -145,7 +145,7 @@
         </if>
         <else>
           <names variable="author" suffix=" ">
-            <name name-as-sort-order="all" sort-separator=" " initialize-with="." delimiter=", " et-al-min="4" et-al-use-first="3" delimiter-precedes-et-al="never"></name>
+            <name name-as-sort-order="all" sort-separator=" " initialize-with=". " delimiter=", " et-al-min="4" et-al-use-first="3" delimiter-precedes-et-al="never"></name>
             <et-al term="et-al"></et-al> 
             <substitute>
               <names variable="editor"></names>
@@ -157,7 +157,7 @@
       <group delimiter=". ">
         <choose>
           <if type="article-journal article-magazine article-newspaper" match="any">
-            <text variable="container-title" prefix=" // " font-style="italic"></text>
+            <text variable="container-title" font-style="italic"></text>
           </if>
           <else-if type="webpage post-weblog" match="any">
             <text variable="container-title" font-style="italic"/>
@@ -180,13 +180,13 @@
       </group>
       <choose>
         <if variable="DOI">
-          <text variable="DOI" prefix=". — DOI: "></text>
+          <text variable="DOI" prefix=". DOI: "></text>
         </if>
       </choose>
       <text macro="physical-dimensions" prefix=". "></text>
       <choose>
         <if variable="URL">
-          <group delimiter=" " prefix=". — URL: " suffix=".">
+          <group delimiter=" " prefix=". URL: " suffix=".">
             <text variable="URL"></text>
             <group prefix=" (" suffix=")">
               <choose>
