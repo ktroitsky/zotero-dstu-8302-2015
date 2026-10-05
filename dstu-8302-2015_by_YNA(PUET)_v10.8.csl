@@ -39,7 +39,27 @@
   </macro>
   <macro name="physical-dimensions">
     <choose>
-      <if type="book report" match="any">
+      <if type="book">
+        <choose>
+          <if is-numeric="number-of-pages">
+            <group delimiter=" ">
+              <text variable="number-of-pages"/>
+              <choose>
+                <if variable="language">
+                  <text value="p."/>
+                </if>
+                <else>
+                  <text value="с."/>
+                </else>
+              </choose>
+            </group>
+          </if>
+          <else>
+            <text variable="number-of-pages"/>
+          </else>
+        </choose>
+      </if>
+      <else-if type="report">
         <choose>
           <if is-numeric="page">
             <group delimiter=" ">
@@ -58,7 +78,7 @@
             <text variable="page"/>
           </else>
         </choose>
-      </if>
+      </else-if>
     </choose>
   </macro>
   <macro name="publisher">
