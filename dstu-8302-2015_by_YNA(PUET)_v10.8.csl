@@ -195,6 +195,35 @@
         </else>
       </choose>
       <text variable="title" suffix=". "></text>    
+      <choose>
+      <if type="chapter">
+        <group delimiter=". ">
+          <group delimiter=" / ">
+            <text variable="container-title" font-style="italic"/>
+            <group delimiter=" ">
+              <choose>
+                <if variable="language">
+                  <text value="ed. by"/>
+                </if>
+                <else>
+                  <text value="за ред."/>
+                </else>
+              </choose>
+              <names variable="editor">
+                <name initialize-with=". " delimiter=", "/>
+              </names>
+            </group>
+          </group>
+          <group delimiter=", ">
+            <text variable="publisher-place"/>
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+          </group>
+          <text macro="locators-specific"/>
+        </group>
+      </if>
+      <else>
       <group delimiter=". ">
         <choose>
           <if type="article-journal article-magazine article-newspaper" match="any">
@@ -219,6 +248,8 @@
         </group>
         <text macro="locators-specific"></text>
       </group>
+      </else>
+      </choose>
       <choose>
         <if variable="DOI">
           <text variable="DOI" prefix=". DOI: "></text>
