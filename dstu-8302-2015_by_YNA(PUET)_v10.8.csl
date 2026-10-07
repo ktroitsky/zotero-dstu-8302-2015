@@ -34,6 +34,7 @@
       <name name-as-sort-order="all" sort-separator=" " initialize-with="." delimiter=", "/>
       <substitute>
         <names variable="editor"/>
+        <text variable="title"/>
       </substitute>
     </names>
   </macro>
